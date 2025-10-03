@@ -1,0 +1,17 @@
+name: Ping Replit
+
+# Khi nào workflow chạy
+on:
+  schedule:
+    - cron: '*/5 * * * *'   # mỗi 5 phút
+  workflow_dispatch:        # có thể chạy thủ công trong GitHub
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Replit URL
+        run: |
+          echo "Pinging Replit..."
+          curl -fsS --max-time 20 "https://1db0d3a4-d671-4ce8-8c0c-5f6f6f10a2b3-00-1lmqng0tuozuz.pike.replit.dev" || true
